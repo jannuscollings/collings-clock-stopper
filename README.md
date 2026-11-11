@@ -1,5 +1,7 @@
 # Collings Clock Stopper — staging starter
 
+Staging: https://collings-clock-stopper-staging.onrender.com
+
 A small Vite static app for a ten-second clock-stopping game. This starter uses placeholder branding and a **local-only leaderboard demonstration**. It is not yet production-ready or a shared leaderboard.
 
 ## Run locally
