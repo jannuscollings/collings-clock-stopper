@@ -1,4 +1,3 @@
-import './style.css';
 const target=10000, key='collings-clock-stopper-demo-scores';
 const clock=document.querySelector('#clock'),toggle=document.querySelector('#toggle'), message=document.querySelector('#message'), form=document.querySelector('#scoreForm'), nameInput=document.querySelector('#player'), scoresEl=document.querySelector('#scores'), showAll=document.querySelector('#showAll');
 let start=0, running=false, raf=0, elapsed=0, showTen=false;
