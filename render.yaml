@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: collings-clock-stopper-staging
+    runtime: static
+    branch: develop
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    autoDeployTrigger: commit
