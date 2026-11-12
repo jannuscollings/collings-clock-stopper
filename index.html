@@ -43,6 +43,7 @@
     .top-score{top:auto;bottom:18px}.leaderboard-modal{border-color:#456b7547}.close-board{border:1px solid #6f8d9633;border-radius:50%;width:38px;height:38px;display:grid;place-items:center;line-height:1;font-size:24px;font-weight:300;transition:background .2s ease,border-color .2s ease}.close-board:hover{background:#304752;border-color:#6f8d9680}.podium-card.first .rank{background:linear-gradient(140deg,#fff2b8 5%,#d7a743 40%,#f9df91 70%,#a66a20);background-clip:text;-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 2px 5px #dba94755)}@media(max-width:600px){.top-score{top:auto;bottom:10px}}
     .top-score,.reset,.fullscreen-toggle{border-radius:3px}
     .close-board svg{display:block}.top-score{border-radius:999px;padding-inline:21px;font-size:13.5px}@media(max-width:600px){.top-score{padding-inline:13px;font-size:9.5px}}
+    .reset{border-radius:999px}.leaderboard-head{position:relative;justify-content:center;text-align:center;padding-inline:45px}.leaderboard-head .close-board{position:absolute;right:0;top:0}
   </style>
 </head>
 <body>
@@ -90,7 +91,7 @@
     <div class="podium" id="podium"></div>
     <ol class="score-list" id="scoreList"></ol>
     <form class="board-form" id="boardForm" hidden><label for="playerName">You made the top 10! Add your name.</label><div><input id="playerName" name="playerName" maxlength="30" required autocomplete="nickname" placeholder="Your name"><button type="submit">Save score</button></div></form>
-    <p class="board-note">Today’s scores on this device</p>
+    <p class="board-note">Today's Score</p>
   </dialog>
   <script>
     (()=>{
