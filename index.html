@@ -74,7 +74,7 @@
     <section class="game" aria-label="Clock stopper game">
       <p class="prompt" id="prompt">Ready when you are</p>
       <div class="watch-wrap"><div class="watch"><div class="screen-bezel"><div class="screen"><div class="time" id="time" role="timer" aria-label="Elapsed time 0.00 seconds"></div></div></div><button class="action" id="action" type="button">Start</button><button class="action" id="next" type="button" hidden>Next player</button></div></div>
-      <div class="rules"><strong>Perfect 10.00</strong> = <span>+5 entries</span> &nbsp;·&nbsp; <strong>within 0.10s</strong> = <span>+3</span> &nbsp;·&nbsp; <strong>within 0.50s</strong> = <span>+2</span> &nbsp;·&nbsp; <strong>everyone else</strong> = <span>+1</span></div>
+      <div class="rules"><strong>Perfect 10.00</strong> = <span>+10 entries</span> &nbsp;·&nbsp; <strong>within 0.10s</strong> = <span>+3</span> &nbsp;·&nbsp; <strong>within 0.50s</strong> = <span>+2</span> &nbsp;·&nbsp; <strong>everyone else</strong> = <span>+1</span></div>
       <div class="daily-stats">Today's closest: <strong id="closest">—</strong> &nbsp;·&nbsp; Plays: <strong id="plays">0</strong></div>
       <div class="result-details" id="resultDetails" hidden>
         <p class="delta" id="delta">&nbsp;</p>
@@ -111,7 +111,7 @@
       function sizeDigits(){const width=time.getBoundingClientRect().width;const dw=Math.min(90,Math.max(34,(width-50)/4.7));time.style.setProperty('--dw',dw+'px');time.style.setProperty('--dh',Math.min(dw*1.63,time.getBoundingClientRect().height-4)+'px');time.style.setProperty('--st',Math.max(5,dw*.16)+'px')}
       function show(ms){const value=(ms/1000).toFixed(2);time.replaceChildren();for(const char of value){if(char==='.'){const dot=document.createElement('span');dot.className='sep';dot.textContent='.';time.append(dot);continue}const digit=document.createElement('span');digit.className='digit';for(const segment of 'abcdefg'){const part=document.createElement('i');part.className='seg '+segment+(map[char].includes(segment)?' on':'');digit.append(part)}time.append(digit)}time.setAttribute('aria-label','Elapsed time '+value+' seconds')}
       function tick(){if(state!=='running')return;show(performance.now()-started);frame=requestAnimationFrame(tick)}
-      function score(ms){const off=Math.abs(ms-target);return off<5?5:off<=100?3:off<=500?2:1}
+      function score(ms){const off=Math.abs(ms-target);return off<5?10:off<=100?3:off<=500?2:1}
       function clearRound(){cancelAnimationFrame(frame);clearTimeout(hideTimer);clearTimeout(boardTimer);state='ready';watchWrap.classList.remove('running');time.classList.remove('hidden');show(0);prompt.textContent='Ready when you are';resultDetails.hidden=true;action.hidden=false;action.textContent='Start';next.hidden=true;leaderboard.close()}
       action.addEventListener('click',()=>{
         if(state==='ready'){state='running';started=performance.now();watchWrap.classList.add('running');prompt.textContent='Stop as close to 10.00 as you can';action.textContent='Stop';tick();hideTimer=setTimeout(()=>{if(state==='running')time.classList.add('hidden')},3000);return}
